@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#Bash scrip that prints "Best School" 10 times
+#But at 9th iteration after displaing "Best School" it displays "Hi"
+
+i=1
+while [ $i -le 10 ]
+do
+	if [ $i -eq 9 ]
+	then
+		echo "Best School"
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+	((i++))
+done
