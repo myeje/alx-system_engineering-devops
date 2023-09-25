@@ -2,5 +2,5 @@
 # Bash script that creates an RSA key pair
 Key="school"
 numbits=4096
-
-ssh-keygen -t rsa -b $numbits -f $key -P betty
+passphrase="betty"
+ssh-keygen -t rsa -b $numbits -f $key -N "$passphrase"
