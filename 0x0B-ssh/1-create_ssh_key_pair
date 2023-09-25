@@ -3,4 +3,5 @@
 Key="school"
 numbits=4096
 passphrase="betty"
-ssh-keygen -t rsa -b $numbits -f $key -N "$passphrase"
+
+ssh-keygen -b $numbits -t rsa -f $key -N "$passphrase"
