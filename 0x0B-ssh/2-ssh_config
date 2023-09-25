@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Connet=ct to a server without typing a password
+Host 34.224.4.34
+  User ubuntu
+  identifyfile ~/.ssh/school
+  PasswordAuthentication no
