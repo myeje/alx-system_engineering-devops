@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This bash script contains commands to automatically configure an Ubuntu
+# ...machine to respect the below requirement:
+# The redirection must be a “301 Moved Permanently”
+sudo apt-get update
+sudo apt-get install -y nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/https://www.youtube.com/channel/UCkou_leH-1z_QOXu1Chu7Ww permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
