@@ -7,8 +7,3 @@ apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 service nginx start
-if systemctl is-active --quiet nginx; then
-    echo "Nginx is now installed, configured, and running."
-else
-    echo "Nginx failed to start. Please check the configuration."
-fi
