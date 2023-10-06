@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Bash script that debugs code according to requirements
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
-rm /run/nginx.pid
+pkill -o nginx
