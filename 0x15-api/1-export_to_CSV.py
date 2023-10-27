@@ -2,9 +2,9 @@
 """
 Python script to export data in the CSV format.
 """
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     idUrl = "https://jsonplaceholder.typicode.com/"
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     user = employeeId.get("user")
 
     task = [pop.get("title") for pop in req if pop.get("completed") is True]
-    with open('{}.csv'.format(sys.argv[1]), 'w') as f:
+    with open("{}.csv".format(sys.argv[1]), "w", newline="") as f:
         for tsk in task:
             f.write('"{}","{}","{}","{}"\n'
                        .format(sys.argv[1], user, tsk.get('completed'),
