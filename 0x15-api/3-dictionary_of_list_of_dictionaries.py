@@ -12,9 +12,9 @@ if __name__ == "__main__":
     with open("todo_all_employees.json", "w") as file:
         json.dump({
             tsk.get("id"): [{
-                "task": tasks.get("title"),
-                "completed": tasks.get("completed"),
+                "task": g.get("title"),
+                "completed": g.get("completed"),
                 "username": tsk.get("username")
-            } for tasks in requests.get(idUrl + "todos",
-                                        params={"userId": tsk.get("id")}).json()]
+            } for g in requests.get(idUrl + "todos",
+                                    params={"userId": tsk.get("id")}).json()]
             for tsk in employeeId}, file)
