@@ -16,5 +16,5 @@ if __name__ == "__main__":
                 "completed": tasks.get("completed"),
                 "username": tsk.get("username")
             } for tasks in requests.get(idUrl + "todos",
-                                      params={"userId": tsk.get("id")}).json()]
+                                        params={"userId": tsk.get("id")}).json()]
             for tsk in employeeId}, file)
