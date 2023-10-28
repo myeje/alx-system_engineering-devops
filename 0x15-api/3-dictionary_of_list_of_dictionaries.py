@@ -7,7 +7,7 @@ import requests
 
 if __name__ == "__main__":
     idUrl = "https://jsonplaceholder.typicode.com/"
-    employeeId = requests.get(idUrl + "users/{}".format(sys.argv[1])).json()
+    employeeId = requests.get(idUrl + "users").json()
 
     with open("todo_all_employees.json", "w") as file:
         json.dump({
