@@ -11,7 +11,7 @@ if __name__ == "__main__":
     req = requests.get(idUrl + "todos", params={"userId": sys.argv[1]}).json()
     employeeId = requests.get(idUrl + "users/{}".format(sys.argv[1])).json()
     user = employeeId.get("user")
-	
+
     with open("{}.csv".format(sys.argv[1]), "w", newline="") as f:
         f = csv.writer(f, quoting=csv.QUOTE_ALL)
         for tsk in req:
