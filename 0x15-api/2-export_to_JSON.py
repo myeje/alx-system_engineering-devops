@@ -11,16 +11,10 @@ if __name__ == "__main__":
     req = requests.get(idUrl + "todos", params={"userId": sys.argv[1]}).json()
     employeeId = requests.get(idUrl + "users/{}".format(sys.argv[1])).json()
     user = employeeId.get("user")
-    result = {sys.argv[1]: []}
 
-    for tsk in req:
-        task = tsk.get("title")
-        completed = tsk.get("completed")
-        result[sys.argv[1]].append({
-            "task": task,
-            "completed": completed,
-            "username": user
-        })
-
-    with open("{}.json".format(sys.argv[1]), "w") as file:
-        json.dump(result, file)
+    with open("{}.json".format(sys.argv[1]), "w") as f:
+        json.dump({sys.argv[1]: [{
+                "task": pop.get("title"),
+                "completed": pop.get("completed"),
+                "username": user
+            } for pop in req]}, f)
