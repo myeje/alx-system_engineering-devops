@@ -12,8 +12,8 @@ if __name__ == "__main__":
     employeeId = requests.get(idUrl + "users/{}".format(sys.argv[1])).json()
     user = employeeId.get("user")
 	
-	with open('your_file.csv', 'w', newline='') as file:
-		f = csv.writer(f, quoting=csv.QUOTE_ALL)
-		for tsk in req:
+    with open("{}.csv".format(sys.argv[1]), "w", newline="") as f:
+        f = csv.writer(f, quoting=csv.QUOTE_ALL)
+        for tsk in req:
 			row = [sys.argv[1], user, tsk.get("completed"), tsk.get("title")]
 			f.writerow(row)
