@@ -11,7 +11,6 @@ if __name__ == "__main__":
     req = requests.get(idUrl + "todos", params={"userId": sys.argv[1]}).json()
     employeeId = requests.get(idUrl + "users/{}".format(sys.argv[1])).json()
     user = employeeId.get("user")
-    task = [pop.get("title") for pop in req if pop.get("completed") is True]
 
     with open("{}.csv".format(sys.argv[1]), "w", newline="") as file:
         w = csv.writer(file, quoting=csv.QUOTE_ALL)
