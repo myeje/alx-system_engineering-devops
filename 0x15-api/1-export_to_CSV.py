@@ -13,7 +13,7 @@ if __name__ == "__main__":
     user = employeeId.get("user")
 
     with open("{}.csv".format(sys.argv[1]), "w", newline="") as file:
-        w = csv.writer(file, quoting=csv.QUOTE_ALL)
-        [w.writerow(
+        output = csv.writer(file, quoting=csv.QUOTE_ALL)
+        [output.writerow(
             [sys.argv[1], user, tsk.get("completed"), tsk.get("title")]
          ) for tsk in req]
