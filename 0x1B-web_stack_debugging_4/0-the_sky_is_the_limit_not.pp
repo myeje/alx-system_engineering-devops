@@ -2,8 +2,8 @@
 
 file { 'fix-request':
   ensure  => 'file',
-  path    => '/etc/default/nginx',
-  command => inline_template('<%= File.read("/etc/default/nginx").gsub(/15/, "4096") %>'),
+  path    => '/usr/local/bin/:/bin/',
+  command => 'sed -i "s/15/4096/" /etc/default/nginx'
 }
 
 # Restarting Nginx
