@@ -1,9 +1,8 @@
 # Fixing web server that's not doing well
 
-file { 'fix-request':
-  ensure  => 'file',
-  path    => '/usr/local/bin/:/bin/',
-  command => 'sed -i "s/15/4096/" /etc/default/nginx'
+exec { 'fix-request':
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
 }
 
 # Restarting Nginx
